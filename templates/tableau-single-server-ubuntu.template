@@ -387,6 +387,13 @@ Resources:
           FromPort: '22'
           ToPort: '22'
           CidrIp: !Ref 'SourceCIDR'
+  TableauServerWaitHandle:
+    Type: AWS::CloudFormation::WaitConditionHandle
+  TableauServerWaitCondition:
+    Type: AWS::CloudFormation::WaitCondition
+    Properties:
+      Handle: !Ref 'TableauServerWaitHandle'
+      Timeout: '3600'
 Outputs:
   InstanceID:
     Description: EC2 InstanceID of the instance running Tableau Server
