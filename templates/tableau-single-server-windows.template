@@ -191,7 +191,7 @@ Mappings:
   DefaultConfiguration:
     InstallationConfig:
       InstallationBucket: tableau-quickstart
-      InstallationExecutable: TableauServer-64bit-2020-4-0.exe
+      InstallationExecutable: https://downloads.tableau.com/esdalt/2021.3.1/TableauServer-64bit-2021-3-1.exe
     MachineConfiguration:
       SystemVolumeSize: 50
       DataVolumeSize: 100
@@ -255,18 +255,10 @@ Resources:
             c:\tabsetup\python-3.6.4-amd64.exe:
               source: https://www.python.org/ftp/python/3.6.4/python-3.6.4-amd64.exe
             c:\tabsetup\tableau-server-webapp-installer.exe:
-              source: !Join
-                - ''
-                - - https://
-                  - !FindInMap
-                    - DefaultConfiguration
-                    - InstallationConfig
-                    - InstallationBucket
-                  - .s3-us-west-2.amazonaws.com/
-                  - !FindInMap
-                    - DefaultConfiguration
-                    - InstallationConfig
-                    - InstallationExecutable
+              source: !FindInMap
+                - DefaultConfiguration
+                - InstallationConfig
+                - InstallationExecutable
           commands:
             '0-disable-firewall':
               cwd: c:\Windows\System32
