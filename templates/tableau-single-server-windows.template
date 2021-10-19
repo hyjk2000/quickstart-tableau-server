@@ -107,7 +107,7 @@ Parameters:
     Type: AWS::EC2::KeyPair::KeyName
   LatestAmiId:
     Type: 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
-    Default: '/aws/service/ami-windows-latest/Windows_Server-2012-R2_RTM-English-64Bit-Base'
+    Default: '/aws/service/ami-windows-latest/Windows_Server-2019-English-Full-Base'
   Password:
     Description: Tableau Services Manager (TSM) administrator password. Must be at
       least 8 characters containing letters, numbers and symbols
